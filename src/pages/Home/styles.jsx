@@ -8,5 +8,5 @@ export const Container = styled.header`
 `;
 
 export const ButtonLogin = styled.div`
-  margin-top: 150px;
+  margin-top: 100px;
 `;

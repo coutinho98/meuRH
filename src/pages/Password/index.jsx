@@ -14,9 +14,9 @@ export default function PageHeader() {
           <img src={arrow} alt="Back" />
           <span>Voltar</span>
         </Link>
-        <h1>Olá getOperador</h1>
-        <Input type="text" placeholder="cpf" />
-        <Input type="text" placeholder="nome" />
+        <h1>Olá Employee</h1>
+        <Input type="text" placeholder="cpf*" />
+        <Input type="text" placeholder="matricula*" />
         <Input type="text" placeholder="e-mail" />
         <Input type="password" placeholder="senha" />
         <Input type="password" placeholder="repetir senha" />
