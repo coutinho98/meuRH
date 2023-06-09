@@ -20,4 +20,10 @@ export default styled.input`
   & + & {
     margin-top: 16px;
   }
+
+  &::-webkit-outer-spin-button,
+  &::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
 `;

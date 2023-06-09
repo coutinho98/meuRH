@@ -25,5 +25,4 @@ export default styled.button`
     background: #ccc;
     cursor: default;
   }
-
 `;
