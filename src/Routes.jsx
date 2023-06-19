@@ -10,6 +10,7 @@ export default function Routes() {
       <Route path="/" exact component={Home} />
       <Route path="/password" component={Password} />
       <Route path="/admin" component={Admin} />
+      <Route path="/admin" component={AdminPassword} />
     </Switch>
   );
 }
