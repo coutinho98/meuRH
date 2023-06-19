@@ -20,6 +20,7 @@
     "react/jsx-no-useless-fragment": "off",
     "no-unused-vars": "off",
     "import/order": "off",
-    "react/jsx-no-bind": "off"
+    "react/jsx-no-bind": "off",
+    "no-shadow": "off"
   }
 }

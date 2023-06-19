@@ -4,7 +4,7 @@ import { Container } from "./styles";
 import Input from "../../components/Input";
 import Button from "../../components/Button";
 
-export default function PageHeader() {
+export default function Password() {
   const [step, setStep] = useState(false);
   const [cpf, setCpf] = useState("");
   const [matricula, setMatricula] = useState("");
@@ -12,23 +12,32 @@ export default function PageHeader() {
   const [repeatSenha, setRepeatSenha] = useState("");
 
   async function validate() {
-    const response = await fetch("https://jsonplaceholder.typicode.com/posts", {
-      method: "POST",
-      body: JSON.stringify({ cpf, matricula }),
-      headers: { "Content-Type": "application/json" },
-    });
-    console.log(response);
+    if (setCpf === cpf && setMatricula === matricula) {
+      const response = await fetch(
+        "https://jsonplaceholder.typicode.com/posts",
+        {
+          method: "POST",
+          body: JSON.stringify({ cpf, matricula }),
+          headers: { "Content-Type": "application/json" },
+        }
+      );
+      console.log(response);
+    }
   }
 
   async function changePassword() {
     if (senha === repeatSenha) {
-      const response = await fetch(`https://jsonplaceholder.typicode.com/posts${senha}`, {
-        method: "PUT",
-        body: JSON.stringify({ senha }),
-        headers: { "Content-Type": "application/json" },
-      });
+      const response = await fetch(
+        `https://jsonplaceholder.typicode.com/posts${senha}`,
+        {
+          method: "PUT",
+          body: JSON.stringify({ senha }),
+          headers: { "Content-Type": "application/json" },
+        }
+      );
     }
   }
+  const changePage = () => setStep((step) => !step);
 
   return (
     <>
@@ -46,8 +55,14 @@ export default function PageHeader() {
               placeholder="matricula*"
               onChange={(e) => setMatricula(e.target.value)}
             />
-            <Button type="button" onClick={validate}>
-              validate
+            <Button
+              type="button"
+              onClick={() => {
+                validate();
+                changePage();
+              }}
+            >
+              Avançar
             </Button>
           </>
         )}
@@ -63,7 +78,9 @@ export default function PageHeader() {
               placeholder="repetir senha"
               onChange={(e) => setRepeatSenha(e.target.value)}
             />
-            <Button type="button">confirmar a senha</Button>
+            <Button type="button" onClick={changePassword}>
+              Confirmar a Senha
+            </Button>
           </>
         )}
       </Container>
